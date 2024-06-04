@@ -1,1 +1,113 @@
+database Connectivity
+Database name → b2cdb
+username → b2cdb
+password → b2cdb
 
+Admin →
+
+1) BRANCH
+
+ID (primary key)
+ACTIVE
+DESCRIPTION
+LOCATION
+NAME
+
+2) USER_INFO
+
+ID (Primary key)
+ACTIVE
+BRANCH_ID (Foreign key)
+FULLNAME
+PASSWORD
+USER_TYPE_ID (Foreign key)
+USERNAME
+
+3) USER_TYPE
+
+ID (Primary key)
+ACTIVE
+DESCRIPTION
+NAME
+
+Purchase →
+
+1) PURCHASE
+
+ID (primary key)
+ACTIVE
+DATE
+DESCRIPTION
+PRICE
+PURCHASE_ITEM_ID (Foreign ket)
+QUANTITY
+RATE
+
+2) PURCHASE_ITEM
+
+ID (Primary key)
+ACTIVE
+DESCRIPTION
+NAME
+UNIT_ID (Foreign key)
+
+3) UNIT
+
+ID (Primary key)
+ACTIVE
+DESCRIPTION
+NAME
+
+Production →
+
+1) PRODUCTION_ITEM
+
+ID (Primary key)
+
+ACTIVE
+DESCRIPTION
+NAME
+UNIT_ID (Foreign key)
+
+Sale →
+
+1) SALE
+
+ ID (Primary key)
+ACTIVE
+BILL_NUMBER
+DATE
+PRICE
+PRODUCTION_ID (Foreign key)
+QUANTITY
+SALE_ITEM_ID (Foreign key)
+
+2) SALE_ITEM
+
+ ID (Primary key)
+ACTIVE
+PRODUCTION_ID (Foreign key)
+QUANTITY
+RATE
+
+# application.properties
+
+spring.datasource.url=jdbc:derby://localhost:1527/b2cdb
+spring.datasource.username=b2cdb
+spring.datasource.password=b2cdb
+
+spring.datasource.driver-class-
+name=org.apache.derby.jdbc.ClientDriver
+
+spring.jpa.hibernate.ddl-auto=update
+server.port=9098
+
+Framework
+# to Add
+1) Spring Web
+2) Lombok
+3) Apache Derby Database
+4) Spring Data JPA
+
+# Add- We have to pick the code of Derby Client () from
+central repository
