@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="angular.min.js"></script>
+        <script>
+            var app = angular.module("myApp", []);
+            app.controller("c1", function ($scope, $http) {
+                $scope.list = [];
+                $scope.getData = function () {
+                    $http.get("http://localhost:8080/unit/getall")
+                            .then(function (response) {
+                                alert("success");
+                                $scope.list = response.data;
+                            },
+                                    function (error) {
+                                        alert("error");
+                                    });
+                }
+            });
+        </script>
+    </head>
+    <body ng-app="myApp" ng-controller="c1">
+        <input type="button" value="Get Data" ng-click="getData();"/>
+        <table border>
+            <tr ng-repeat="record in list">
+                <td>{{record.id}}</td>
+                <td>{{record.name}}</td>
+                <td>{{record.description}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
